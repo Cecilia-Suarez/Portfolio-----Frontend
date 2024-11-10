@@ -5,11 +5,13 @@ import Education from './Education'
 import Header from './Header'
 import Project from './Project'
 import Skill from './Skill'
+import Hero from './Hero'
 
 function App() {
   return (
     <>
         <Header />
+        <Hero/>
         <Experience />
         <Education />
         <Skill/>
