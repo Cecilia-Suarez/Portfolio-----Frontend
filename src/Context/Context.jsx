@@ -30,8 +30,14 @@ const Context = ({ children }) => {
         axios(url)
         .then(response => dispatch({type: 'GET_EDUCATIONS', payload: response.data }))
     }, [])
+
+    const urlAllSkills = 'http://localhost:8080/skills/all'
+
+    useEffect(() => {
+        axios(urlAllSkills)
+        .then(response => dispatch({type: 'GET_SKILLS', payload: response.data }))
+    }, [])
     
-   
 
     return (
         <CharStates.Provider value={{listExperiences, listEducations, listSkills, listProjects, dispatch}}>

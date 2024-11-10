@@ -7,7 +7,7 @@ export const reducer = (state, action) => {
             return {...state, listEducations: action.payload}
 
         case 'GET_SKILLS':
-            return {}
+            return {...state, listSkills: action.payload}
 
         case 'GET_PROJECTS':
             return {}
