@@ -3,7 +3,7 @@ import './App.css'
 import Experience from './Experience'
 import Education from './Education'
 import Header from './Header'
-import Context from './Context/Context'
+import Project from './Project'
 import Skill from './Skill'
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <Experience />
         <Education />
         <Skill/>
+        <Project/>
         <Footer />
     </>
   )

@@ -37,6 +37,13 @@ const Context = ({ children }) => {
         axios(urlAllSkills)
         .then(response => dispatch({type: 'GET_SKILLS', payload: response.data }))
     }, [])
+
+    const urlAllProjects = 'http://localhost:8080/projects/all'
+
+    useEffect(() => {
+        axios(urlAllProjects)
+        .then(response => dispatch({type: 'GET_PROJECTS', payload: response.data }))
+    }, [])
     
 
     return (

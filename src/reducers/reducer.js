@@ -10,7 +10,7 @@ export const reducer = (state, action) => {
             return {...state, listSkills: action.payload}
 
         case 'GET_PROJECTS':
-            return {}
+            return {...state, listProjects: action.payload}
 
         case 'GET_PROJECT':
             return {}

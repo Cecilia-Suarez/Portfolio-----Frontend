@@ -5,7 +5,7 @@ const Skill = () => {
     const { listSkills } = useCharStates()
 
     return (
-        <>
+        <div id='skills'>
             <h1>Skills</h1>
             {listSkills.map(skill =>
                 <div key={skill.id}>
@@ -13,7 +13,7 @@ const Skill = () => {
                     <img src={skill.image} alt="Description" />
                     <div />
                 </div>)}
-        </>
+        </div>
 
     )
 }
