@@ -1,18 +1,15 @@
 import React from 'react'
-import Card from './Components/Card'
+import Summary from './Components/Summary'
+import { useCharStates } from './Context/Context'
 
 const Education = () => {
+
+  const {listEducations} = useCharStates()
+
   return (
     <div id='education'>
         <h1>Education</h1>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        {listEducations.filter(summary => summary.type === 'EDUCATION').map(summary => <Summary summary={summary} key={summary.id}/>)}
     </div>
   )
 }
