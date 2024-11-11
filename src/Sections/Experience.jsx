@@ -1,6 +1,6 @@
 import React from 'react'
-import { useCharStates } from './Context/Context'
-import Summary from './Components/Summary'
+import { useCharStates } from '../Context/Context'
+import Summary from '../Components/Summary'
 
 const Experience = () => {
   

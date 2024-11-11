@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCharStates } from './Context/Context'
+import { useCharStates } from '../Context/Context'
 
 const Project = () => {
     const { listProjects } = useCharStates()

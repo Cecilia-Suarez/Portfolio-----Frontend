@@ -6,6 +6,7 @@ import Header from './Header'
 import Project from './Project'
 import Skill from './Skill'
 import Hero from './Hero'
+import Contact from './Contact'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Education />
         <Skill/>
         <Project/>
+        <Contact/>
         <Footer />
     </>
   )
