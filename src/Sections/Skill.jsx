@@ -9,9 +9,8 @@ const Skill = () => {
             <h1>Skills</h1>
             {listSkills.map(skill =>
                 <div key={skill.id}>
-                    <h1 >{skill.name}</h1>
                     <img src={skill.image} alt="Description" />
-                    <div />
+                    <h1 >{skill.name}</h1>                   
                 </div>)}
         </div>
 
