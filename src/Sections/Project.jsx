@@ -12,7 +12,8 @@ const Project = () => {
             {listProjects.map(project =>
                 <div key={project.id}>
                     <Link to={'/detail/' + project.id}>
-                        <h2 >{project.name}</h2></Link>
+                        <h2 >{project.name}</h2>
+                    </Link>
                 </div>)}
 
         </div>
