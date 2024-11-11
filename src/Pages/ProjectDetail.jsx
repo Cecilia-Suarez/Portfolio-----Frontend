@@ -23,8 +23,8 @@ const ProjectDetail = () => {
     return (
         <div>
             <h1>{project.name}</h1>
-            <button>GitHub</button>
-            <button>Site</button>
+            <a href={project.repository} target="_blank" rel="noopener noreferrer"><button>GitHub</button></a>
+            <a href={project.site} target="_blank" rel="noopener noreferrer"><button>Site</button></a>
             <DetailsTable project={project}/>
             <Carrousel/>
         </div>
