@@ -1,11 +1,18 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div style={{display: 'flex', justifyContent:'space-around', width: '100vw', padding: '0%'}}>
-        <Link to={"/"}><h1>LOGO</h1></Link>
+        <h1 onClick={handleLogoClick}>LOGO</h1>
         <Navbar/>
         <div style={{display: 'flex', justifyContent:'space-around', padding: '0%'}}>
             <h4>linkedin</h4>
