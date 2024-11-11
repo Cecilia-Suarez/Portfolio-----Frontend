@@ -9,7 +9,7 @@ const ProjectDetail = () => {
     const {id} = useParams()
     console.log(id)
 
-    const {getProjectById, project} = useCharStates()
+    const {getProjectById, project, listProjects} = useCharStates()
     console.log(project)
 
     useEffect(() => {
@@ -20,13 +20,19 @@ const ProjectDetail = () => {
         return <div>Loading...</div>;
     }
 
+    const otherProjects = listProjects.filter(p => p.id !== project.id);
+
+    const handleProjectClick = (projectId) => {
+        navigate(`/projects/${projectId}`);
+    };
+
     return (
         <div>
             <h1>{project.name}</h1>
-            <a href={project.repository} target="_blank" rel="noopener noreferrer"><button>GitHub</button></a>
+            <a href={project.repository} target="_blank" rel="noopener noreferrer"><button>Repository</button></a>
             <a href={project.site} target="_blank" rel="noopener noreferrer"><button>Site</button></a>
             <DetailsTable project={project}/>
-            <Carrousel/>
+            <Carrousel projects={otherProjects} onProjectClick={handleProjectClick}/>
         </div>
     )
 }
