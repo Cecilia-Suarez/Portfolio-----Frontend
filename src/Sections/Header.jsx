@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around', width: '100vw', padding: '0%' }}>
+    <div>
         <Link to={"/"}><h1>LOGO</h1></Link>
         <Navbar/>
-        <div style={{ display: 'flex', justifyContent: 'space-around'}}>
+        <div>
             <h3>🌐</h3>
             <h3>☀</h3>
         </div>

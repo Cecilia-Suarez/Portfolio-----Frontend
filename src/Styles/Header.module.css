@@ -1,0 +1,10 @@
+.containerHeader, .containerLanguageAndTheme, .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a {
+    padding-left: 5%;
+    cursor: pointer
+}
