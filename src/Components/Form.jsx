@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Send from './Send';
+import Button from './Button';
+import "../Styles/Form.css"
 
 const Form = () => {
     const [contact, setContact] = useState({
@@ -41,30 +43,30 @@ const Form = () => {
     };
 
     return (
-        <div>
+        <div className='flex items-center justify-center'>
             {!show && (
-                <form onSubmit={sendHandler}>
-                    <label>Name</label>
-                    <input type="text" name="name" value={contact.name} onChange={handleChange}/>
-                    {errors.name && <small>{errors.name}</small>}
+                <form onSubmit={sendHandler} className="flex flex-col w-3/5 text-start justify-around">
+                    <label className="label-style">Name</label>
+                    <input type="text" name="name" value={contact.name} onChange={handleChange} className="input-style" required />
+                    {errors.name && <small className="error-message">{errors.name}</small>}
 
-                    <label>Email</label>
-                    <input type="email" name="email" value={contact.email} onChange={handleChange}/>
-                    {errors.email && <small>{errors.email}</small>}
+                    <label className="label-style">Email</label>
+                    <input type="email" name="email" value={contact.email} onChange={handleChange} className="input-style" required/>
+                    {errors.email && <small className="error-message">{errors.email}</small>}
 
-                    <label>Email Subject</label>
-                    <input type="text" name="emailSubject" value={contact.emailSubject}onChange={handleChange}/>
-                    {errors.emailSubject && <small>{errors.emailSubject}</small>}
+                    <label className="label-style">Subject</label>
+                    <input type="text" name="emailSubject" value={contact.emailSubject}onChange={handleChange} className="input-style" required />
+                    {errors.emailSubject && <small className="error-message">{errors.emailSubject}</small>}
 
-                    <label>Message</label>
-                    <textarea name="message" value={contact.message} onChange={handleChange}/>
-                    {errors.message && <small>{errors.message}</small>}
+                    <label className="label-style">Message</label>
+                    <textarea name="message" value={contact.message} onChange={handleChange} rows="4" className="input-style" placeholder="Write your message here..."></textarea>
+                    {errors.message && <small className="error-message">{errors.message}</small>}
 
-                    <button type="submit">Send</button>
+                    <Button type='sumbit'>Send</Button>
                 </form>
             )}
             {show && <Send name={contact.name} />}
-            {Object.keys(errors).length > 0 && <h5>Please verify that the data is correct.</h5>}
+            {Object.keys(errors).length > 0 && <h5 className="error-message">Please verify that the data is correct.</h5>}
         </div>
     );
 };

@@ -7,9 +7,12 @@ const Project = () => {
     const { listProjects } = useCharStates()
 
     return (
-        <div id='proyects'>
+        <div id='proyects' className='flex flex-col items-center'>
             <h1>Projects</h1>
-            {listProjects.map(project => <ProjectSlide key={project.id} project={project}/>)}
+            <div className='flex gap-y-3.5 w-6/12 h-max'>
+             {listProjects.map(project => <ProjectSlide key={project.id} project={project}/>)}   
+            </div>
+            
         </div>
     )
 }

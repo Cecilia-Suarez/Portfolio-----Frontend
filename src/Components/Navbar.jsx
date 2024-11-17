@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-scroll'
-import styles from '../Styles/Header.module.css'
+
 
 const Navbar = () => {
+
     return (
-        <div className={styles.navbar}>
+        <div className="flex justify-between items-center gap-2">
             <Link to='experience' smooth={true} duration={2500} offset={-50}>Experience</Link>
             <Link to='education' smooth={true} duration={2500} offset={-50}>Education</Link>
             <Link to='skills' smooth={true} duration={2500} offset={-50}>Skills</Link>

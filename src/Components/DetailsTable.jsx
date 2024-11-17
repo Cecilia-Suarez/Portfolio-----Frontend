@@ -1,21 +1,24 @@
 import React from 'react'
+import '../Styles/DetailsTable.css'
 
 const DetailsTable = ({project}) => {
     
     return (
-        <div>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                    <tr>
-                        <th style={{ border: '1px solid #ddd', padding: '8px' }}>Description</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px' }}>Year</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px' }}>Skills</th>
+        <div className="flex justify-center">
+            <table className="w-3/4">
+            <tbody>
+                    <tr >
+                        <th className='th-style'>Description</th>
+                        <td className='td-style'>{project.description}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{project.description}</td>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{project.year}</td>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{project.skills.map(skill => skill.name).join(', ')}</td>
+                    <tr>
+                        <th className='th-style'>Year</th>
+                        <td className='td-style'>{project.year}</td>
+                    </tr>
+                    <tr>
+                        <th className='th-style'>Skills</th>
+                        <td className='td-style'>{project.skills.map(skill => skill.name).join(', ')}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
