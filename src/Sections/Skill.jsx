@@ -6,12 +6,12 @@ const Skill = () => {
 
     return (
         <div id='skills' className='flex items-center flex-col'>
-            <h1>Skills</h1>
+            <h2 className='text-3xl'>Skills</h2>
             <div className='grid grid-cols-4 gap-6'>
               {listSkills.map(skill =>
                 <div key={skill.id} className='flex flex-col gap-3 items-center'>
                     <img src={skill.image} alt="Description" className='max-w-36' />
-                    <h1 >{skill.name}</h1>                   
+                    <h5 className='text-lg'>{skill.name}</h5>                   
                 </div>)}  
             </div>
             

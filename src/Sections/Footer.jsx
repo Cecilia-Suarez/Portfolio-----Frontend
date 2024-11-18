@@ -32,7 +32,7 @@ const Footer = () => {
       </div>
       <div>
           <hr class=" border-gray-300 py-1"/>
-          <span class=" text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 - All Rights Reserved.</span>
+          <span class= "text-xs text-gray-500 sm:text-center dark:text-gray-400">© 2024 - All Rights Reserved.</span>
       </div>
     </div>
   )

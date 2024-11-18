@@ -12,7 +12,7 @@ const Experience = () => {
 
   return (
     <div id='experience'>
-      <h1>Experience</h1>
+      <h2 className='text-3xl'>Experience</h2>
       <div className="flex justify-between w-full">
         {sortedExperiences
           .filter(summary => summary.type === 'EXPERIENCE') 

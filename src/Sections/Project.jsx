@@ -8,7 +8,7 @@ const Project = () => {
 
     return (
         <div id='proyects' className='flex flex-col items-center'>
-            <h1>Projects</h1>
+            <h2 className='text-3xl'>Projects</h2>
             <div className='flex gap-y-3.5 w-6/12 h-max'>
              {listProjects.map(project => <ProjectSlide key={project.id} project={project}/>)}   
             </div>

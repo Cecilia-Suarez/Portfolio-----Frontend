@@ -10,7 +10,7 @@ const ProjectSlide = ({ project: propProject }) => {
     <div className='flex flex-col gap-3 items-center w-2/12'>
       <Link to={'/detail/' + project.id}>
         <img src={project.images[0]} alt={project.name} className='max-w-48' />
-        <h2>{project.name}</h2>
+        <h5 className='text-lg'>{project.name}</h5>
       </Link>
     </div>
   );

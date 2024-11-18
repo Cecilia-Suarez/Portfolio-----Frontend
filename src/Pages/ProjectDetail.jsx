@@ -30,7 +30,7 @@ const ProjectDetail = () => {
     return (
         <div className='flex flex-col justify-between w-full'>
             <img src={project.images[0]} alt={project.name} />
-            <h1>{project.name}</h1>
+            <h2 className='text-3xl'>{project.name}</h2>
 
             <div className='flex justify-around items-center w-auto'>
                 <a href={project.repository} target="_blank"><Button>Repository</Button></a>
