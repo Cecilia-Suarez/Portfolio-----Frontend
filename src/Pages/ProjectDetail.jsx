@@ -4,6 +4,7 @@ import Carrousel from '../Components/Carrousel'
 import { useParams } from 'react-router-dom'
 import { useCharStates } from '../Context/Context'
 import Button from '../Components/Button'
+import Gallery from '../Components/Gallery'
 
 const ProjectDetail = () => {
 
@@ -11,8 +12,7 @@ const ProjectDetail = () => {
     console.log(id)
 
     const { getProjectById, project, listProjects } = useCharStates()
-    console.log(project)
-
+    
     useEffect(() => {
         getProjectById(id);
     }, [id, getProjectById]);
@@ -28,11 +28,13 @@ const ProjectDetail = () => {
     };
 
     return (
-        <div className='flex flex-col justify-between w-full'>
-            <img src={project.images[0]} alt={project.name} />
+        <div className='flex flex-col justify-around'>
             <h2 className='text-3xl'>{project.name}</h2>
+            <Gallery/>
+            {/*<img src={project.images[0]} alt={project.name} />*/}
+            
 
-            <div className='flex justify-around items-center w-auto'>
+            <div className='flex justify-evenly items-center '>
                 <a href={project.repository} target="_blank"><Button>Repository</Button></a>
                 <a href={project.site} target="_blank"><Button>Site</Button></a>
             </div>

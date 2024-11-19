@@ -5,7 +5,7 @@ const DetailsTable = ({project}) => {
     
     return (
         <div className="flex justify-center">
-            <table className="w-3/4">
+            <table className="w-2/4">
             <tbody>
                     <tr >
                         <th className='th-style'>Description</th>
