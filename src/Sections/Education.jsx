@@ -1,7 +1,7 @@
 import React from 'react'
 import Summary from '../Components/Summary'
 import { useCharStates } from '../Context/Context'
-import lineTime from '../assets/lineTime.svg'
+import lineTime from '../assets/rama.svg'
 
 const Education = () => {
   const { listEducations } = useCharStates()
@@ -12,8 +12,8 @@ const Education = () => {
 
   return (
     <div id='education'>
-      <h2 className='text-3xl'>Education</h2>
-      <div className="flex justify-between w-full">
+      <h2 className='text-3xl animate-fadeIn'>Education</h2>
+      <div className="flex justify-between w-full animate-growthLeft">
         {sortedEducations
           .filter(summary => summary.type === 'EDUCATION')
           .map((summary) => (

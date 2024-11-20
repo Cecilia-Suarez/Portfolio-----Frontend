@@ -10,48 +10,32 @@ export default {
         sans: ['"Roboto Flex"', 'sans-serif'],
       },
       animation: {
-        fadeInLeft: 'fadeInLeft 1s ease-out',
         fadeIn: 'fadeIn 1s ease-in-out',
-        growHorizontal: 'growHorizontal 1.5s ease-out forwards',
-        growPlant: 'growPlant 5s ease-out forwards',
-        diagonalIn: 'diagonalIn 1s ease-out',
-        diagonalReveal: 'diagonalReveal 2s ease-out forwards'
+        fadeInRight: 'fadeInRight 2s ease-out',
+        growthLeft: 'growthLeft 5s ease-out forwards',
+        tada: 'tada 1s ease-in-out',
       },
       keyframes: {
-        fadeInLeft: {
-          '0%': { opacity: 0, transform: 'translateX(-50px)' },
-          '100%': { opacity: 1, transform: 'translateX(0)' },
-        },
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
-        growHorizontal: {
-          '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
-          '100%': { transform: 'scaleX(1)', transformOrigin: 'left' },
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(-100px)' },
+          '50%': { opacity: '0.5', transform: 'translateX(50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
-        growPlant: {
-          '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
-          '100%': { transform: 'scaleX(1)', transformOrigin: 'left' },
+        growthLeft: {
+          '0%': {clipPath: 'inset(0 100% 0 0)'},
+          '100%': {clipPath: 'inset(0 0 0 0)'},
         },
-        diagonalIn: {
-          '0%': {
-            transform: 'translateX(-100%) translateY(-100%)',
-            opacity: 0,
-          },
-          '100%': {
-            transform: 'translateX(0) translateY(0)',
-            opacity: 1,
-          },
-        },
-        diagonalReveal: {
-          '0%': {
-            clipPath: 'inset(0 100% 0 0)',
-            '100%': {
-              clipPath: 'inset(0 0 0 0)',
-            },
-          },
-
+        tada: {
+          '0%': { transform: 'scale(1)' },
+          '10%, 20%': { transform: 'scale(0.9) rotate(-3deg)' },
+          '30%, 50%, 70%': { transform: 'scale(1.1) rotate(3deg)' },
+          '40%, 60%': { transform: 'scale(1.1) rotate(-3deg)' },
+          '80%': { transform: 'scale(1) rotate(1deg)' },
+          '100%': { transform: 'scale(1) rotate(0)' },
         },
       },
     },
