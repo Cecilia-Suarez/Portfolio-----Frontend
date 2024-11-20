@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <div className="flex justify-around items-center">
+    <div className="flex justify-around items-center animate-fadeIn">
       <Link to={"/"}><h1>LOGO</h1></Link>
       <Navbar/>
       <div className="flex justify-around items-center">

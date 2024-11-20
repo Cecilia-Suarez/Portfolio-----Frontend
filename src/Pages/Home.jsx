@@ -6,7 +6,6 @@ import Skill from '../Sections/Skill'
 import Hero from '../Sections/Hero'
 import Contact from '../Sections/Contact'
 
-
 const Home = () => {
   return (
     <>
