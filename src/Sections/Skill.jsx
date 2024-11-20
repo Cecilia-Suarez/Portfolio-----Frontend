@@ -5,7 +5,7 @@ const Skill = () => {
     const { listSkills } = useCharStates()
 
     return (
-        <div id='skills' className='flex items-center flex-col animate-fadeInRight'>
+        <div id='skills' className='flex items-center flex-col animate-slideInRight'>
             <h2 className='text-3xl animate-fadeIn'>Skills</h2>
             <div className='grid grid-cols-4 gap-6'>
               {listSkills.map(skill =>

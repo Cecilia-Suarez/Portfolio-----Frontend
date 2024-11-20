@@ -7,9 +7,9 @@ const Project = () => {
     const { listProjects } = useCharStates()
 
     return (
-        <div id='proyects' className='flex flex-col items-center'>
+        <div id='proyects' className='flex flex-col items-center animate-slideInLeft'>
             <h2 className='text-3xl animate-fadeIn'>Projects</h2>
-            <div className='flex gap-y-3.5 w-6/12 h-max'>
+            <div className='flex gap-y-3.5 w-6/12 h-max '>
              {listProjects.map(project => <ProjectSlide key={project.id} project={project}/>)}   
             </div>
             

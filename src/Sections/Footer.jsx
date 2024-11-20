@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection:'column', justifyContent: 'space-between'}}>
-      <div style={{ display: 'flex', justifyContent: 'space-around'}}>
+      <div className="flex justify-around animate-slideInUp">
         <h1 onClick={handleLogoClick}>LOGO</h1>
         <Navbar />
         <div style={{ display: 'flex', justifyContent: 'space-around', padding: '0%' }}>
