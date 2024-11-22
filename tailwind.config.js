@@ -12,6 +12,7 @@ export default {
       animation: {
         fadeIn: 'fadeIn 1s ease-in-out',
         growthLeft: 'growthLeft 5s ease-out forwards',
+        growthTop: ' growthTop 5s ease-out forwards',
         tada: 'tada 1s ease-in-out',
         spinnerGrow: 'spinnerGrow 1.5s forwards ease-in-out',
         slideInRight: 'slideInRight 5s ease-out',
@@ -51,6 +52,10 @@ export default {
         slideInUp: {
           '0%': { transform: 'translateY(100%)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        growthTop: {
+          '0%': { clipPath: 'inset(0 0 100% 0)' },
+          '100%': { clipPath: 'inset(0 0 0 0)' },
         },
       },
     },

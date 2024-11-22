@@ -45,7 +45,7 @@ const Form = () => {
     return (
         <div className='flex items-center justify-center'>
             {!show && (
-                <form onSubmit={sendHandler} className="flex flex-col w-3/5 text-start justify-around">
+                <form onSubmit={sendHandler} className="flex flex-col w-2/5 text-start justify-around">
                     <label className="label-style">Name</label>
                     <input type="text" name="name" value={contact.name} onChange={handleChange} className="input-style" required />
                     {errors.name && <small className="error-message">{errors.name}</small>}

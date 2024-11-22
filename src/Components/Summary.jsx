@@ -7,7 +7,7 @@ const Summary = ({ summary }) => {
   return (
     <div className='flex flex-col items-center'>
       <p className='text-base'>{year}</p>
-      <h5 className='text-lg'>{name}</h5>
+      <h5 className='text-lg font-semibold'>{name}</h5>
       <p className='text-base'>{location}</p>
     </div>
   );

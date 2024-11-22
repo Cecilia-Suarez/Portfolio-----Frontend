@@ -13,13 +13,13 @@ const Education = () => {
   return (
     <div id='education'>
       <h2 className='text-3xl animate-fadeIn'>Education</h2>
-      <div className="flex justify-between w-full animate-growthLeft">
+      <div className="flex lg:flex-row lg:animate-growthLeft sm:flex-col-reverse sm:animate-growthTop justify-between w-full">
         {sortedEducations
           .filter(summary => summary.type === 'EDUCATION')
           .map((summary) => (
             <div key={summary.id}
               className="w-full flex flex-col items-center">
-              <img src={lineTime} alt="lineTime" />
+              <img src={lineTime} alt="lineTime" className='lg:w-full lg:h-auto lg:rotate-0 lg:m-0 md:w-40 md:h-auto md:-rotate-90 md:mb-14 md:mt-14'/>
               <Summary summary={summary} />
             </div>
           ))}
