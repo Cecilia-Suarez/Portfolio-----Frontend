@@ -7,6 +7,6 @@
   }
 
 .label-style {
-    @apply block mb-2 text-base font-semibold text-gray-900
+    @apply block mb-2 text-base font-semibold text-left text-gray-900
 }
 

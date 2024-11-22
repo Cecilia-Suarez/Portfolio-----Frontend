@@ -45,7 +45,7 @@ const Form = () => {
     return (
         <div className='flex items-center justify-center'>
             {!show && (
-                <form onSubmit={sendHandler} className="flex flex-col w-2/5 text-start justify-around">
+                <form onSubmit={sendHandler} className="flex flex-col w-2/5  justify-between">
                     <label className="label-style">Name</label>
                     <input type="text" name="name" value={contact.name} onChange={handleChange} className="input-style" required />
                     {errors.name && <small className="error-message">{errors.name}</small>}
@@ -62,7 +62,7 @@ const Form = () => {
                     <textarea name="message" value={contact.message} onChange={handleChange} rows="4" className="input-style" placeholder="Write your message here..."></textarea>
                     {errors.message && <small className="error-message">{errors.message}</small>}
 
-                    <Button type='sumbit'>
+                    <Button type='sumbit' className="ml-auto">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="m12 18-7 3 7-18 7 18-7-3Zm0 0v-5" />
                         </svg>Send</Button>
