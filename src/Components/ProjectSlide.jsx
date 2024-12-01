@@ -7,10 +7,10 @@ const ProjectSlide = ({ project: propProject }) => {
   const project = propProject || contextProject;
 
   return (
-    <div className='flex flex-col gap-3 items-center w-2/12 animate-spinnerGrow'>
-      <Link to={'/detail/' + project.id}>
-        <img src={project.images[0]} alt={project.name} className='max-w-48' />
-        <h5 className='text-lg'>{project.name}</h5>
+    <div className='flex flex-col gap-6 items-center animate-spinnerGrow'>
+      <Link to={'/detail/' + project.id} className="flex flex-col items-center gap-2">
+        <img src={project.images[0]} alt={project.name} className='w-48 h-auto object-cover hover:scale-110 rounded-lg' />
+        <h5 className='text-lg text-center'>{project.name}</h5>
       </Link>
     </div>
   );

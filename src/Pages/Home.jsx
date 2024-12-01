@@ -8,14 +8,14 @@ import Contact from '../Sections/Contact'
 
 const Home = () => {
   return (
-    <>
+    <div className='flex-1 p-y-20 p-y-20 text-center'>
         <Hero/>
         <Experience />
         <Education />
         <Skill/>
         <Project/>
         <Contact/>
-    </>
+    </div>
   )
 }
 

@@ -17,7 +17,7 @@ export default {
         spinnerGrow: 'spinnerGrow 1.5s forwards ease-in-out',
         slideInRight: 'slideInRight 5s ease-out',
         slideInLeft: 'slideInLeft 5s ease-out',
-        slideInUp: 'slideInUp 2s ease-out',
+        slideInUp: 'slideInUp 2s ease-out'
       },
       keyframes: {
         fadeIn: {
@@ -57,6 +57,7 @@ export default {
           '0%': { clipPath: 'inset(0 0 100% 0)' },
           '100%': { clipPath: 'inset(0 0 0 0)' },
         },
+
       },
     },
     plugins: [],

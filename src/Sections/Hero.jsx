@@ -1,10 +1,11 @@
 import React from 'react'
 import image from '../assets/Diseño sin título (10).png'
 import Button from '../Components/Button'
+import '../Styles/prueba.css'
 
 const Hero = () => {
   return (
-    <div className='grid lg:grid-cols-2 md:grid-cols-1 justify-around items-center animate-fadeIn'>
+    <div><div className='grid lg:grid-cols-2 md:grid-cols-1 animate-fadeIn bg-[#99cdd8] '>
       <section className='flex flex-col justify-center items-center gap-8'>
         <h1 className='lg:text-5xl md:text-4xl sm:text-4xl'>Hello! I am Cecilia Suárez</h1>
         <p className='text-justify text-base w-3/4'>Welcome to my portfolio! A couple of years ago, I started venturing into the IT world and it has completely caught me :) I love traveling, playing the piano, listening to music and everything related to web development. I am always looking for new learning and challenges that allow me to grow personally and professionally. I hope you enjoy this portfolio as much as I enjoyed making it!</p>
@@ -15,9 +16,14 @@ const Hero = () => {
           <span>CV</span>
         </Button>
       </section>
+
       <figure className='flex justify-center'>
         <img src={image} alt="Hero" className='w-3/4' />
       </figure>
+    </div>
+      <div className='shapedividers_com-2545 h-20 -mt-12 bg-[#fcf4f0] '>
+      </div>
+
     </div>
   )
 }
