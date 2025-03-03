@@ -4,4 +4,7 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   plugins: [react(), svgr()],
+  server: {
+    port: process.env.PORT || 3000
+  }
 });
