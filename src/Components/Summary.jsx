@@ -1,14 +1,18 @@
 import React from 'react';
+import { useCharStates } from '../Context/Context'
 
 const Summary = ({ summary }) => {
 
-  const {name, location, year} = summary
+  const {year, translations} = summary
+  const {language} = useCharStates();
+
+  const translation = translations.find((t) => t.languageCode === language);
 
   return (
-    <div className='flex flex-col items-center'>
-      <p className='text-base'>{year}</p>
-      <h5 className='text-lg font-semibold'>{name}</h5>
-      <p className='text-base'>{location}</p>
+    <div >
+      <p>{year}</p>
+      <h5>{translation.name}</h5>
+      <p>{translation.location}</p>
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.containerDetailTable{
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
+.table{
+    width: 50%;
+}
+
+.tableStyle{
+    padding: 1rem 1.5rem; 
+    vertical-align: top; 
+    border-bottom: 1px solid var(--colorTerceary); 
+}
+
+.tdStyle{
+    text-align: justify;
+}
+
+.thStyle{
+   text-align: left;  
+}

@@ -1,0 +1,34 @@
+.containerContact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.contactImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr; 
+}
+
+@media (max-width: 800px) {
+  .containerContact {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+  
+  .contactImage {
+      max-width: 80%;
+  }
+}

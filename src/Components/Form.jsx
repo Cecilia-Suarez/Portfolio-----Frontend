@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Send from './Send';
 import Button from './Button';
-import "../Styles/Form.css";
+import '../Styles/Components/Form.css';
+import sendIcon from '../assets/send.svg';
+import { useCharStates } from '../Context/Context';
 
-const Form = () => {
+const Form = ({ show, setShow, setUserName }) => {
     const [contact, setContact] = useState({
         name: '',
         email: '',
@@ -11,30 +13,32 @@ const Form = () => {
         message: ''
     });
 
-    const [show, setShow] = useState(false);
     const [errors, setErrors] = useState({});
+    const { t } = useCharStates();
 
     const validateForm = () => {
         const newErrors = {};
-
-        if (contact.name.length <= 3) newErrors.name = 'The name must be more than 3 characters.';
-        if (!/^\S+@\S+\.\S+$/.test(contact.email)) newErrors.email = 'Please enter a valid email.';
-        if (contact.subject.length <= 5) newErrors.emailSubject = 'The subject must be more than 5 characters.';
-        if (contact.message.length <= 10) newErrors.message = 'The message must be more than 10 characters.';
+        if (contact.name.length <= 3) newErrors.name = t('errorName');
+        if (!/^\S+@\S+\.\S+$/.test(contact.email)) newErrors.email = t('errorEmail');
+        if (contact.subject.length <= 5) newErrors.subject = t('errorSubject');
+        if (contact.message.length <= 10) newErrors.message = t('errorMesage');
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
+
+    const url = 'https://portfolio-backend-production-81b1.up.railway.app/'
 
     const sendHandler = async (event) => {
         event.preventDefault();
 
         if (validateForm()) {
             setShow(true);
+            setUserName(contact.name);
             setErrors({});
 
             try {
-                const response = await fetch('http://localhost:8080/api/contact', {
+                const response = await fetch( url + 'api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -48,45 +52,40 @@ const Form = () => {
             } catch (error) {
                 console.error('Error:', error);
             }
-        } else {
-            setShow(false);
         }
     };
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setContact({ ...contact, [name]: value });
-    };
-
     return (
-        <div className='flex items-center justify-center'>
+        <div className='containerForm'>
             {!show && (
-                <form onSubmit={sendHandler} className="flex flex-col w-2/5 text-start justify-around">
-                    <label className="label-style">Name</label>
-                    <input type="text" name="name" value={contact.name} onChange={handleChange} className="input-style" required />
-                    {errors.name && <small className="error-message">{errors.name}</small>}
+                <form onSubmit={sendHandler} className='form'>
+                    <div className='containerNameAndEmail'>
+                        <div className='inputGroup'>
+                            <label className='labelStyle'>{t('labelName')}</label>
+                            <input type="text" name="name" value={contact.name} onChange={(e) => setContact({ ...contact, name: e.target.value })} className='inputStyle' required />
+                            {errors.name && <small className='errorMessage'>{errors.name}</small>}
+                        </div>
 
-                    <label className="label-style">Email</label>
-                    <input type="email" name="email" value={contact.email} onChange={handleChange} className="input-style" required />
-                    {errors.email && <small className="error-message">{errors.email}</small>}
+                        <div className='inputGroup'>
+                            <label className='labelStyle'>{t('labelEmail')}</label>
+                            <input type="email" name="email" value={contact.email} onChange={(e) => setContact({ ...contact, email: e.target.value })} className='inputStyle' required />
+                            {errors.email && <small className='errorMessage'>{errors.email}</small>}
+                        </div>
+                    </div>
 
-                    <label className="label-style">Subject</label>
-                    <input type="text" name="subject" value={contact.subject} onChange={handleChange} className="input-style" required />
-                    {errors.emailSubject && <small className="error-message">{errors.emailSubject}</small>}
+                    <label className='labelStyle'>{t('labelSubject')}</label>
+                    <input type="text" name="subject" value={contact.subject} onChange={(e) => setContact({ ...contact, subject: e.target.value })} className='inputStyle' required />
+                    {errors.subject && <small className='errorMessage'>{errors.subject}</small>}
 
-                    <label className="label-style">Message</label>
-                    <textarea name="message" value={contact.message} onChange={handleChange} rows="4" className="input-style" placeholder="Write your message here..."></textarea>
-                    {errors.message && <small className="error-message">{errors.message}</small>}
+                    <label className='labelStyle'>{t('labelMessage')}</label>
+                    <textarea name="message" value={contact.message} onChange={(e) => setContact({ ...contact, message: e.target.value })} rows="4" className='inputStyle' placeholder={t('placeholderMessage')}></textarea>
+                    {errors.message && <small className='errorMessage'>{errors.message}</small>}
 
-                    <Button type="submit" className="ml-auto">
-                        <svg className="w-6 h-6 text-gray-800 dark:text-white rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.3" d="m12 18-7 3 7-18 7 18-7-3Zm0 0v-5" />
-                        </svg>Send
-                    </Button>
+                    <Button type="submit" src={sendIcon} alt="send">{t('sendButton')}</Button>
                 </form>
             )}
             {show && <Send name={contact.name} />}
-            {Object.keys(errors).length > 0 && <h5 className="error-message">Please verify that the data is correct.</h5>}
+            {Object.keys(errors).length > 0}
         </div>
     );
 };

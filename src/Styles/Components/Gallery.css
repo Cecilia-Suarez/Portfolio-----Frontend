@@ -1,0 +1,76 @@
+.containerGallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.mainMediaContainer {
+    width: 70%;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.mainMedia {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.secondaryMediaContainer {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.thumbnails,
+.dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.thumbnail,
+.dot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.thumbnail {
+    width: 12rem;
+    height: 6rem;
+    border-radius: 1rem;
+    border: 2px solid #e5e7eb;
+    object-fit: cover;
+}
+
+.thumbnail.active {
+    border-color: var(--colorQuintenary);
+}
+
+.dots{
+    display: none;
+}
+
+.dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+}
+
+.dot.active {
+    background-color: var(--colorPrimary);
+}
+
+@media (max-width: 768px) {
+    .thumbnails {
+        display: none;
+    }
+
+    .dots {
+        display: flex;
+    }
+}

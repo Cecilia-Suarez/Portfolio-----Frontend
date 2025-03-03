@@ -1,9 +1,10 @@
-const Button = ({ children, className }) => {
+import '../Styles/Components/Button.css';
+
+const Button = ({ src, alt, children, className, onClick }) => {
   return (
-    <button
-      className={`flex w-fit gap-1 px-4 py-2 items-center text-white bg-blue-500 rounded-lg text-base shadow-lg shadow-blue-500/50 ${className}`}
-    >
-      {children}
+    <button onClick={onClick} className={`buttonContainer ${className}`}>
+      {src && <img src={src} alt={alt} className="buttonImage" />}
+      <span>{children}</span>
     </button>
   );
 };

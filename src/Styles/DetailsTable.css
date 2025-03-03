@@ -1,7 +1,0 @@
-.th-style {
-    @apply px-6 py-4 text-left align-top border-b border-gray-500 text-gray-900 
-}
-
-.td-style{
-    @apply px-6 py-4 align-top text-justify text-gray-700 border-b border-gray-500 
-}

@@ -1,0 +1,102 @@
+.containerSkill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideInRight 5s ease-out;
+    padding: 4rem;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.skillsColumn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 80%;
+    justify-content: space-around;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex: 1 1 calc(20% - 2rem);
+    max-width: calc(20% - 2rem);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.skill:hover {
+    animation: tada 1s ease-in-out forwards;
+}
+
+@keyframes tada {
+    0% {
+        transform: scale(1);
+    }
+
+    10%, 20% {
+        transform: scale(0.9) rotate(-3deg);
+    }
+
+    30%, 50%, 70% {
+        transform: scale(1.1) rotate(3deg);
+    }
+
+    40%, 60% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+
+    80% {
+        transform: scale(1) rotate(1deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.image {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .skillsColumn {
+        width: 100%;
+    }
+
+    .skill {
+        flex: 1 1 calc(33.33% - 1rem);
+        max-width: calc(33.33% - 1rem);
+    }
+
+    .image {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .skill {
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+
+    .image {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+}

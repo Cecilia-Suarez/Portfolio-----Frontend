@@ -1,0 +1,51 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--colorPrimary);
+}
+
+.headerContainer button {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.sun {
+    animation: rotate360 20s linear infinite;
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.moon{
+    animation: swing 1s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    50% {
+        transform: rotate(15deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+@media (max-width: 768px) {
+    .icons {
+        display: none;
+    }
+}

@@ -5,42 +5,41 @@ import { useParams } from 'react-router-dom'
 import { useCharStates } from '../Context/Context'
 import Button from '../Components/Button'
 import Gallery from '../Components/Gallery'
-import DetailSkeleton from '../Components/SkeletonLoader/DetailSkeleton'
+import styleProjectDetail from '../Styles/Sections/ProjectDetail.module.css'
+import link from '../assets/link.svg'
+import gitHub from '../assets/github.svg'
+import Loader from '../Components/Loader'
 
 const ProjectDetail = () => {
-    const { id } = useParams()
-
-    const { getProjectById, project, listProjects } = useCharStates()
+    const { id } = useParams();
+    const { getProjectById, project, listProjects, t, language } = useCharStates();
 
     useEffect(() => {
         getProjectById(id);
-    }, [id, getProjectById]);
+    }, [id, language]);
 
     if (!project) {
-        return <DetailSkeleton />;
+        return <Loader />;
     }
 
     const otherProjects = listProjects.filter(p => p.id !== project.id);
 
-    const handleProjectClick = (projectId) => {
-        navigate(`/projects/${projectId}`);
-    };
-
     return (
-        <div className='flex flex-col justify-around'>
-            <h2 className='text-3xl'>{project.name}</h2>
+        <div className={styleProjectDetail.containerDetail}>
+            <h2 className='bgTop'>{project.name}</h2>
+            <div className="waves positionBottom"></div>
             <Gallery />
-            {/*<img src={project.images[0]} alt={project.name} />*/}
-
-            <div className='flex justify-evenly items-center '>
-                <a href={project.repository} target="_blank"><Button>Repository</Button></a>
-                <a href={project.site} target="_blank"><Button>Site</Button></a>
+            <div className={styleProjectDetail.containerButtons}>
+                <a href={project.repository} target="_blank" rel="noopener noreferrer"><Button src={gitHub} alt="github">{t('repositoryButton')}</Button></a>
+                <a href={project.site} target="_blank" rel="noopener noreferrer"><Button src={link} alt='link'>{t('siteButton')}</Button></a>
             </div>
-
-            <DetailsTable project={project} />
-            <Carrousel projects={otherProjects} onProjectClick={handleProjectClick} />
+            <div className="waves positionTop slideUp"></div>
+            <div className={`bgBottom slideUp ${styleProjectDetail.containerData}`}>
+                <DetailsTable project={project} />
+                <Carrousel projects={otherProjects} />
+            </div>
         </div>
-    )
+    );
 }
 
-export default ProjectDetail
+export default ProjectDetail;

@@ -1,0 +1,44 @@
+.projectSlide {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.projectSlide:hover {
+    transform: scale(1.05);
+}
+
+.projectLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 20rem;
+    text-decoration: none;
+}
+
+.projectImage {
+    width: 100%;
+    height: auto;  
+    image-rendering: crisp-edges;  
+}
+
+.projectTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 780px) {
+    .projectLink {
+        width: 10rem;
+    }
+
+    .projectSlide {
+        gap: 1rem;
+    }
+}

@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import { reducer } from '../reducers/reducer';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const CharStates = createContext();
 
@@ -9,37 +10,58 @@ const initialState = {
     listEducations: [],
     listSkills: [],
     listProjects: [],
-    project: null
-    //theme
-    //language
+    listCategories: [],
+    project: null,
+    theme: 'light',
+    language: 'es'
 }
 
 const Context = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
+    const { t, i18n } = useTranslation();
 
-    const { listExperiences, listEducations, listSkills, listProjects, project } = state
+    const { listExperiences, listEducations, listSkills, listProjects, listCategories, project, theme, language } = state
 
-    const url = 'http://localhost:8080/summaries/all'
+    const url = 'https://portfolio-backend-production-81b1.up.railway.app/'
 
     useEffect(() => {
-        axios(url)
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(theme);
+    }, [theme]);
+
+    const handleChangeLanguage = () => {
+        const lang = state.language === 'es' ? 'en' : 'es';
+        i18n.changeLanguage(lang);
+        dispatch({ type: 'CHANGE_LANGUAGE', payload: lang });
+    };
+
+    const urlSummaries = url + 'summaries/all'
+
+    useEffect(() => {
+        axios(urlSummaries)
             .then(response => dispatch({ type: 'GET_EXPERIENCES', payload: response.data }))
     }, [])
 
     useEffect(() => {
-        axios(url)
+        axios(urlSummaries)
             .then(response => dispatch({ type: 'GET_EDUCATIONS', payload: response.data }))
     }, [])
 
-    const urlAllSkills = 'http://localhost:8080/skills/all'
+    const urlAllSkills = url + 'skills/all'
 
     useEffect(() => {
         axios(urlAllSkills)
             .then(response => dispatch({ type: 'GET_SKILLS', payload: response.data }))
     }, [])
 
-    const urlAllProjects = 'http://localhost:8080/projects/all'
+    const urlAllCategories = url + 'categories/all'
+    useEffect(() => {
+        axios(urlAllCategories)
+            .then(response => dispatch({ type: 'GET_CATEGORIES', payload: response.data }))
+    }, [])
+
+    const urlAllProjects = url + 'projects/all'
 
     useEffect(() => {
         axios(urlAllProjects)
@@ -47,13 +69,28 @@ const Context = ({ children }) => {
     }, [])
 
     const getProjectById = (id) => {
-        const urlProject = `http://localhost:8080/projects/detail/${id}`
-        axios(urlProject)
+        const urlProject = url + `projects/detail/${id}/translations`;
+
+        axios.get(urlProject, {
+            headers: {
+                'Accept-Language': language
+            }
+        })
             .then(response => dispatch({ type: 'GET_PROJECT_BY_ID', payload: response.data }))
-    }
+            .catch(error => console.error('Error fetching project:', error));
+    };
+
+    const handleChangeTheme = () => {
+        dispatch({
+            type: 'CHANGE_THEME', payload: theme === 'light' ? 'dark' : 'light'
+        });
+    };
 
     return (
-        <CharStates.Provider value={{ listExperiences, listEducations, listSkills, listProjects, project, getProjectById, dispatch }}>
+        <CharStates.Provider value={{
+            listExperiences, listEducations, listSkills, listProjects, listCategories, project, getProjectById, dispatch, theme, handleChangeTheme, language,
+            handleChangeLanguage, t
+        }}>
             {children}
         </CharStates.Provider>
     )

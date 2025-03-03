@@ -1,0 +1,27 @@
+.containerFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--colorPrimary);
+}
+
+.firstSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.secondSection span{
+    color: var(--colorSecondary);
+}
+
+@media (max-width: 600px) {
+    .firstSection {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .containerFooter {
+        gap: 1.5rem;
+    }
+}
