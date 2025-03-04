@@ -48,8 +48,10 @@
 
 @media (max-width: 1100px) {
   .container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
+    gap: 0;
   }
 
   .container p {
@@ -57,7 +59,8 @@
   }
 
   .container figure img{
-    width: 40%;
+    padding-top: 1rem;
+    width: 60%;
   }
 }
 
