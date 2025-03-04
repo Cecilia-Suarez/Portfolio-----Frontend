@@ -46,7 +46,7 @@
   object-fit: cover;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 1100px) {
   .container {
     grid-template-columns: 1fr;
     justify-content: center;
@@ -55,4 +55,15 @@
   .container p {
     text-align: justify;
   }
+
+  .container figure img{
+    width: 40%;
+  }
+}
+
+@media (max-width: 390px) {
+  .container figure img{
+    width: 100%;
+  }
+
 }
