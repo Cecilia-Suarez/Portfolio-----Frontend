@@ -22,6 +22,7 @@
     width: 100%;
     height: auto;  
     image-rendering: crisp-edges;  
+    border: 1px solid var(--colorPrimary);
 }
 
 .projectTitle {
