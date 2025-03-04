@@ -100,6 +100,11 @@
   transition: transform 0.2s ease-in-out;
 }
 
+.categorySelect.darkMode {
+  background: url("../../assets/arrowDark.svg") no-repeat right 10px center;
+  background-size: 1rem;
+}
+
 .categorySelect:focus {
   outline: none;
   border-color: var(--colorPrimary);

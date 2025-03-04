@@ -17,7 +17,7 @@ body {
   color: var(--colorTerceary)
 }
 
-.dark {
+.dark, .dark .dropdownSkills, .dark select, .dark select option{
   background-color: var(--colorTerceary);
   color: var(--colorSecondary);
 }

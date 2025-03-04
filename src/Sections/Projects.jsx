@@ -6,13 +6,15 @@ import styles from '../Styles/Sections/Projects.module.css';
 import search from '../assets/search.svg';
 import clear from '../assets/clear.svg';
 import arrow from "../assets/arrow.svg";
+import arrowDark from "../assets/arrowDark.svg"
 
 const Projects = () => {
-  const { listProjects, listSkills, listCategories, t, language } = useCharStates();
+  const { listProjects, listSkills, listCategories, t, language, theme } = useCharStates();
 
   const [filters, setFilters] = useState({ skills: [], category: '' });
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
   const [displayedProjects, setDisplayedProjects] = useState(listProjects);
+  const [hasSearched, setHasSearched] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -47,17 +49,23 @@ const Projects = () => {
       const skillsMatch =
         filters.skills.length === 0 || filters.skills.every((skill) => projectSkillNames.includes(skill));
 
-      const categoryMatch = !filters.category || project.category.name === filters.category;
+      const projectCategoryName = project.category.translations.find(
+        (t) => t.languageCode === language
+      )?.name || project.category.name;
+
+      const categoryMatch = !filters.category || projectCategoryName === filters.category;
 
       return skillsMatch && categoryMatch;
     });
 
     setDisplayedProjects(filtered);
+    setHasSearched(true);
   };
 
   const handleClear = () => {
     setFilters({ skills: [], category: '' });
     setDisplayedProjects(listProjects);
+    setHasSearched(false);
   };
 
   return (
@@ -66,25 +74,23 @@ const Projects = () => {
       <p>{t('projectsExplication')}</p>
 
       <div className={styles.filtersContainer}>
-        <div className={styles.dropdown}>
-          <div className={styles.dropdownHeader} onClick={() => setIsSkillsOpen(!isSkillsOpen)}>
-            <p>{t('skills')}</p>
-            <img src={arrow} alt="Arrow" className={`${styles.dropdownArrow} ${isSkillsOpen ? styles.open : ''}`} />
+        <div className={styles.dropdown} >
+          <div className={`${styles.dropdownHeader} dropdownSkills`} onClick={() => setIsSkillsOpen(!isSkillsOpen)}>
+            <p>{t('skills')} </p>
+            <img
+              src={theme === 'light' ? arrow : arrowDark}
+              alt={theme === 'light' ? "arrow" : "arrowDark"}
+              className={`${styles.dropdownArrow} ${isSkillsOpen ? styles.open : ''}`}
+            />
           </div>
 
           {isSkillsOpen && (
-            <div className={styles.dropdownMenu}>
+            <div className={`${styles.dropdownMenu} dropdownSkills`}>
               {listSkills.map((skill) => {
                 const skillTranslation = skill.translations.find((t) => t.languageCode === language)?.name || skill.name;
                 return (
                   <label key={skill.id} className={styles.dropdownItem}>
-                    <input
-                      type="checkbox"
-                      value={skillTranslation}
-                      checked={filters.skills.includes(skillTranslation)}
-                      onChange={() => handleSkillChange(skillTranslation)}
-                      className={styles.dropdownCheckbox}
-                    />
+                    <input type="checkbox" value={skillTranslation} checked={filters.skills.includes(skillTranslation)} onChange={() => handleSkillChange(skillTranslation)} className={styles.dropdownCheckbox}/>
                     {skillTranslation}
                   </label>
                 );
@@ -93,7 +99,7 @@ const Projects = () => {
           )}
         </div>
 
-        <select value={filters.category} onChange={handleCategoryChange} className={styles.categorySelect}>
+        <select value={filters.category} onChange={handleCategoryChange} className={`${styles.categorySelect} ${theme === 'light' ? '' : styles.darkMode}`}>
           <option value="">{t('filterCategory')}</option>
           {listCategories.map((category) => {
             const categoryName = category.translations.find((t) => t.languageCode === language)?.name || category.name;
@@ -112,10 +118,12 @@ const Projects = () => {
       </div>
 
       <div id="results">
-        {displayedProjects.length === 0 ? (
-          <p>{t('noResults')}</p>
+        {!hasSearched ? (
+          <Carrousel projects={listProjects} />
+        ) : displayedProjects.length > 0 ? (
+          <Carrousel projects={displayedProjects} />
         ) : (
-          <Carrousel projects={displayedProjects}/>
+          <p>{t('noResults')}</p>
         )}
       </div>
     </div>
