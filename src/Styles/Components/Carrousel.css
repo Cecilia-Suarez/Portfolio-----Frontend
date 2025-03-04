@@ -1,7 +1,7 @@
 .containerCarrousel {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,9 +12,9 @@
 .carouselTrack {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  overflow-x: scroll;
+  justify-content: center; 
+  gap: 3rem; 
+  overflow-x: auto;
   scrollbar-width: none; 
   scroll-behavior: smooth;
   background-color: transparent;
@@ -38,15 +38,36 @@
   z-index: 10;
 }
 
-.left, .right{
+.left, .right {
   margin: 1rem;
 }
 
-.left img{
+.left img {
   transform: rotate(90deg);
 }
 
-.right img{
+.right img {
   transform: rotate(-90deg);
 }
 
+@media (max-width: 1200px) {
+  .carouselTrack {
+    gap: 0; 
+    justify-content: flex-start;
+  }
+
+  .carouselTrack > * {
+    flex: 0 0 100%; 
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerCarrousel {
+    padding: 1rem;
+  }
+
+  .scrollButton {
+    padding: 0.5rem;
+  }
+}
