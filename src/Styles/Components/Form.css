@@ -14,7 +14,7 @@
 .containerNameAndEmail {
     display: flex;
     gap: 1rem;
-    width: 100%;
+    flex-wrap: wrap;
 }
 
 .inputGroup {
@@ -58,9 +58,5 @@
 @media (max-width: 390px) {
     .form button {
         align-self: center;
-    }
-
-    .containerNameAndEmail{
-        flex-direction: column;
     }
 }
