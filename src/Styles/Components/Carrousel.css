@@ -1,9 +1,10 @@
 .containerCarrousel {
   position: relative;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: transparent;
   padding: 2rem 0rem;
 }
@@ -11,30 +12,41 @@
 .carouselTrack {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
   overflow-x: scroll;
   scrollbar-width: none; 
   scroll-behavior: smooth;
   background-color: transparent;
+  scroll-snap-type: x mandatory;
+  width: 100%;
 }
 
 .carouselTrack::-webkit-scrollbar {
   display: none; 
 }
 
-.scrollArea {
+.scrollButton {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 10%;
-  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--colorPrimary);
+  color: var(--colorSecondary);
+  border: none;
+  padding: 1rem;
   cursor: pointer;
+  z-index: 10;
 }
 
-.scrollArea.left {
-  left: 0;
+.left, .right{
+  margin: 1rem;
 }
 
-.scrollArea.right {
-  right: 0;
+.left img{
+  transform: rotate(90deg);
 }
+
+.right img{
+  transform: rotate(-90deg);
+}
+

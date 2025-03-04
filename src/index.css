@@ -14,7 +14,8 @@ body {
   text-align: center;
   overflow-x: hidden;
   background-color: var(--colorSecondary);
-  color: var(--colorTerceary)
+  color: var(--colorTerceary);
+  width: 100vw;
 }
 
 .dark, .dark .dropdownSkills, .dark select, .dark select option{
