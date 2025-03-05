@@ -21,7 +21,9 @@ const Context = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const { t, i18n } = useTranslation();
     const { listExperiences, listEducations, listSkills, listProjects, listCategories, project, theme, language } = state
-    const url = 'https://portfolio-backend-production-81b1.up.railway.app/'
+    "const url = 'https://portfolio-backend-production-81b1.up.railway.app/'"
+
+    const url = 'http://localhost:8080/'
 
     useEffect(() => {
         document.body.classList.remove('light', 'dark');
